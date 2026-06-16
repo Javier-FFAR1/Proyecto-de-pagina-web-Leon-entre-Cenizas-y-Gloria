@@ -1,0 +1,209 @@
+/* ============================================ */
+/* MENSAJES - ESTILO TARJETAS */
+/* ============================================ */
+
+.admin-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.admin-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.admin-header h1 {
+    font-size: 2rem;
+    color: #1f2c39;
+    
+}
+
+.admin-header p {
+    color: #342c2c;
+    font-size: 0.9rem;
+}
+
+.contador {
+    text-align: center;
+    margin-bottom: 25px;
+    padding: 12px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-radius: 30px;
+    font-size: 1rem;
+}
+
+/* Grid de tarjetas */
+.mensajes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.mensaje-card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    border-left: 4px solid #27ae60;
+}
+
+.mensaje-card.no-leido {
+    border-left-color: #e74c3c;
+    background: #fffbf5;
+}
+
+.mensaje-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.mensaje-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.mensaje-nombre {
+    font-weight: bold;
+    color: #2c3e50;
+    font-size: 1.1rem;
+}
+
+.mensaje-fecha {
+    font-size: 0.7rem;
+    color: #999;
+}
+
+.mensaje-email {
+    font-size: 0.8rem;
+    color: #667eea;
+    margin-bottom: 10px;
+}
+
+.mensaje-asunto {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.mensaje-texto {
+    color: #555;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.mensaje-estado {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    margin-right: 10px;
+}
+
+.estado-leido {
+    background: #e8f5e9;
+    color: #27ae60;
+}
+
+.estado-no-leido {
+    background: #ffebee;
+    color: #e74c3c;
+}
+
+.mensaje-acciones {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-marcar, .btn-eliminar {
+    padding: 6px 14px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.7rem;
+    transition: all 0.2s;
+}
+
+.btn-marcar {
+    background: #3498db;
+    color: white;
+}
+
+.btn-marcar:hover {
+    background: #2980b9;
+}
+
+.btn-eliminar {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn-eliminar:hover {
+    background: #c0392b;
+}
+
+.volver-link {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 25px;
+    background: #2c3e50;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    text-align: center;
+    
+    transition: all 0.3s ease;
+}
+
+.volver-link:hover {
+    background: #0b52b597;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(8, 39, 133, 0.448);
+    border: 2px solid #b88a13;
+}
+
+/* Modo oscuro */
+body.tema-noche .mensaje-card {
+    background: #1a1a2e;
+}
+
+body.tema-noche .mensaje-card.no-leido {
+    background: #1f1f3a;
+}
+
+body.tema-noche .mensaje-nombre {
+    color: white;
+}
+
+body.tema-noche .mensaje-asunto {
+    color: #ddd;
+}
+
+body.tema-noche .mensaje-texto {
+    color: #bbb;
+}
+
+body.tema-noche .admin-header p {
+    color: #bbb;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .mensajes-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .admin-header h1 {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,324 @@
+/* CSS PWP/Detalle.css */
+
+.detalle-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    animation: fadeInUp 0.5s ease;
+}
+
+/* ===== BOTÓN VOLVER ===== */
+.btn-volver {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 2px solid #667eea;
+    color: #667eea;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-volver:hover {
+    background: #667eea;
+    color: white;
+    transform: translateX(-4px);
+}
+
+/* ===== IMAGEN ===== */
+.detalle-imagen-wrapper {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    margin-bottom: 30px;
+}
+
+.detalle-imagen {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.4s ease;
+}
+
+.detalle-imagen-wrapper:hover .detalle-imagen {
+    transform: scale(1.03);
+}
+
+.detalle-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+/* ===== INFO ===== */
+.detalle-info {
+    background: white;
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.detalle-titulo {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.detalle-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #f8f9fa;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: #555;
+}
+
+.meta-item i {
+    color: #667eea;
+}
+
+.detalle-descripcion {
+    color: #444;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    margin-bottom: 30px;
+}
+
+/* ===== ACCIONES ===== */
+.detalle-acciones {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-detalle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-mapa {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.btn-mapa:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102,126,234,0.4);
+    color: white;
+}
+
+.btn-compartir {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.btn-compartir:hover {
+    background: #e0e0e0;
+    transform: translateY(-2px);
+}
+
+/* ===== ERROR ===== */
+.detalle-error {
+    text-align: center;
+    padding: 60px 20px;
+    color: #999;
+}
+
+.detalle-error i {
+    font-size: 3rem;
+    color: #e74c3c;
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* ===== ESQUELETO ===== */
+.esqueleto-detalle {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.esqueleto-img-grande {
+    width: 100%;
+    height: 420px;
+    background: #e0e0e0;
+}
+
+/* ===== MODO OSCURO ===== */
+body.tema-noche .detalle-info {
+    background: #1a1a2e;
+    border: 1px solid #2a2a4a;
+}
+
+body.tema-noche .detalle-titulo {
+    color: #ffffff;
+}
+
+body.tema-noche .detalle-descripcion {
+    color: #c0c0c0;
+}
+
+body.tema-noche .meta-item {
+    background: #0f0f23;
+    color: #c0c0c0;
+    border: 1px solid #2a2a4a;
+}
+
+body.tema-noche .detalle-meta {
+    border-bottom-color: #2a2a4a;
+}
+
+body.tema-noche .btn-compartir {
+    background: #2a2a4a;
+    color: #e0e0e0;
+}
+
+body.tema-noche .btn-compartir:hover {
+    background: #3a3a5a;
+}
+
+body.tema-noche .esqueleto-detalle {
+    background: #1a1a2e;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .detalle-imagen-wrapper {
+        height: 250px;
+    }
+
+    .detalle-titulo {
+        font-size: 1.5rem;
+    }
+
+    .detalle-info {
+        padding: 20px;
+    }
+
+    .detalle-acciones {
+        flex-direction: column;
+    }
+
+    .btn-detalle {
+        justify-content: center;
+    }
+}
+
+/* ============================================ */
+/* CARRUSEL EN DETALLE DE MUNICIPIOS            */
+/* ============================================ */
+
+.carrusel-detalle {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    margin-bottom: 30px;
+}
+
+.carrusel-detalle-slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.carrusel-detalle-slide.active {
+    display: block;
+}
+
+.carrusel-detalle-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carrusel-detalle-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    color: white;
+    border: none;
+    padding: 12px 16px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    transition: background 0.2s;
+}
+
+.carrusel-detalle-btn:hover {
+    background: rgba(0,0,0,0.7);
+}
+
+.carrusel-detalle-btn.prev { left: 15px; }
+.carrusel-detalle-btn.next { right: 15px; }
+
+.carrusel-detalle-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.carrusel-detalle-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.carrusel-detalle-dot.active {
+    background: white;
+}
+
+@media (max-width: 768px) {
+    .carrusel-detalle { height: 250px; }
+}

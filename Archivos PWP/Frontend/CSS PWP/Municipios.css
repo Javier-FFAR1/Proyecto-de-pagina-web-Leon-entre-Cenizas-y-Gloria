@@ -1,0 +1,275 @@
+/* ============================================ */
+/*  MUNICIPIOS — León entre Cenizas y Gloria    */
+/*  Estilo consistente con Personajes/Volcanes  */
+/* ============================================ */
+
+.municipios-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.municipios-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.municipios-header h1 {
+    font-size: 2.5rem;
+    color: #263645 !important;
+}
+
+.municipios-header p {
+    font-size: 1.1rem;
+    color: #4b4444 !important;
+    margin-top: 10px;
+}
+
+.municipios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+/* ── Tarjeta ── */
+.municipio-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 2px solid transparent;
+}
+
+.municipio-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    border: 2px solid #cc9323;
+}
+
+/* ── Imagen ── */
+.municipio-img {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.municipio-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s;
+    display: block;
+}
+
+.municipio-card:hover .municipio-img img {
+    transform: scale(1.05);
+}
+
+/* Cuando la imagen es un carrusel no aplicar scale — evita que se asomen imágenes adyacentes */
+.municipio-card:hover .municipio-carrusel .mun-carrusel-track img {
+    transform: none;
+}
+
+/* Fallback sin imagen */
+.municipio-icon-fallback {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, #cc9323, #7B3F1E);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: white;
+}
+
+/* ── Info ── */
+.municipio-info {
+    padding: 20px;
+    flex: 1 1 auto;
+}
+
+.municipio-info h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.municipio-info p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+/* ── Footer de la tarjeta ── */
+.municipio-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px 20px;
+}
+
+.municipio-card-footer .municipio-numero {
+    font-size: 0.95rem;
+    color: #cc9323;
+    font-weight: bold;
+}
+
+.municipio-card-footer .ver-mas-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    color: #667eea;
+}
+
+/* ── Carrusel interno ── */
+.municipio-carrusel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.mun-carrusel-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.4s ease;
+}
+
+.mun-carrusel-track img {
+    min-width: 100%;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+    flex-shrink: 0;
+    display: block;
+}
+
+.mun-car-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.45);
+    color: white;
+    border: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    cursor: pointer;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    padding: 0;
+    line-height: 1;
+}
+
+.mun-car-btn:hover {
+    background: rgba(0,0,0,0.75);
+}
+
+.mun-car-prev { left: 8px; }
+.mun-car-next { right: 8px; }
+
+.mun-car-dots {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 5px;
+    z-index: 3;
+}
+
+.mun-car-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.55);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.mun-car-dot.active {
+    background: #fff;
+    transform: scale(1.25);
+}
+
+/* ── Skeleton loader ── */
+.municipio-skeleton {
+    pointer-events: none;
+}
+
+.skeleton-img {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(90deg, #ece8e0 25%, #f5f0e8 50%, #ece8e0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s infinite;
+}
+
+.skeleton-line {
+    height: 14px;
+    border-radius: 6px;
+    margin: 10px 0;
+    background: linear-gradient(90deg, #ece8e0 25%, #f5f0e8 50%, #ece8e0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s infinite;
+}
+
+.skeleton-title { height: 18px; width: 60%; }
+.skeleton-short { width: 40%; }
+
+@keyframes shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* ── Modo oscuro ── */
+body.tema-noche .municipio-card,
+body.tema-noche  .municipio-card {
+    background: #1a1a2e;
+    border: 2px solid transparent;
+}
+
+body.tema-noche .municipio-card:hover,
+body.tema-noche  .municipio-card:hover {
+    border: 2px solid #cc9323;
+    box-shadow: 0 15px 35px rgba(255,255,255,0.1);
+}
+
+body.tema-noche .municipio-info h3,
+body.tema-noche  .municipio-info h3 { color: white; }
+
+body.tema-noche .municipio-info p,
+body.tema-noche  .municipio-info p  { color: #c0c0c0; }
+
+body.tema-noche .municipios-header h1,
+body.tema-noche  .municipios-header h1 { color: white; }
+
+body.tema-noche .municipios-header p,
+body.tema-noche  .municipios-header p  { color: #c0c0c0; }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .municipios-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .municipios-header h1 {
+        font-size: 1.8rem;
+    }
+}

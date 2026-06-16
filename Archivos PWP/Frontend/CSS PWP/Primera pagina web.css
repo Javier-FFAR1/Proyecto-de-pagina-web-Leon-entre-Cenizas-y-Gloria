@@ -1,0 +1,1402 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* ============================================ */
+/* HEADER */
+/* ============================================ */
+
+.header {
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.08"><circle cx="20" cy="30" r="3" fill="white"/><circle cx="70" cy="50" r="4" fill="white"/><circle cx="40" cy="80" r="2" fill="white"/><circle cx="85" cy="20" r="3" fill="white"/><circle cx="10" cy="70" r="2" fill="white"/></svg>');
+    background-repeat: repeat;
+    pointer-events: none;
+}
+
+.header h1 {
+    font-size: 2.2rem;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: bold;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+    background: linear-gradient(135deg, #f0c674, #e8b56a, #d4953a);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    letter-spacing: 2px;
+    position: relative;
+    animation: tituloBrillar 3s ease-in-out infinite;
+}
+
+@keyframes tituloBrillar {
+    0% { text-shadow: 0 0 5px rgba(255,215,0,0.3); }
+    50% { text-shadow: 0 0 20px rgba(255,215,0,0.6); }
+    100% { text-shadow: 0 0 5px rgba(255,215,0,0.3); }
+}
+
+.header h1::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #f0c674, transparent);
+    border-radius: 2px;
+}
+
+.header .subtitle {
+    font-size: 1.1rem;
+    font-style: italic;
+    margin-top: 8px;
+    color: rgba(255, 255, 255, 0.882);
+    letter-spacing: 1px;
+}
+
+/* ============================================ */
+/* FLOATING NAVBAR CON HAMBURGUESA */
+/* ============================================ */
+
+.floating-navbar {
+    position: relative;
+    width: 100%;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border-radius: 0;
+    padding: 12px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.floating-navbar .hamburger {
+    display: none;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 5px 10px;
+    z-index: 1001;
+}
+
+.nav-items-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 2;
+    border-radius: 50px;
+    padding: 10px 12px;
+}
+
+.nav-icon {
+    font-size: 1.6rem;
+    color: rgba(255,255,255,0.6);
+    transition: all 0.3s ease;
+}
+
+.nav-label {
+    font-size: 0.7rem;
+    margin-top: 6px;
+    color: rgba(255,255,255,0.6);
+    opacity: 0;
+    transform: translateY(5px);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+/* Elemento activo */
+.nav-item.active {
+    transform: translateY(-5px);
+}
+
+.nav-item.active .nav-icon {
+    color: white;
+    transform: translateY(-5px);
+}
+
+.nav-item.active .nav-label {
+    opacity: 1;
+    transform: translateY(0);
+    color: #667eea;
+}
+
+/* Círculo flotante */
+.nav-item.active::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+    z-index: -1;
+    box-shadow: 0 3px 12px rgba(102,126,234,0.5);
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover */
+.nav-item:hover:not(.active) .nav-icon {
+    color: white;
+    transform: translateY(-2px);
+}
+
+.nav-item:hover:not(.active) .nav-label {
+    opacity: 0.7;
+    transform: translateY(0);
+}
+
+/* Indicador de desplazamiento */
+.active-indicator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 70px;
+    height: 3px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    border-radius: 3px;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 1;
+}
+
+/* ============================================ */
+/* RESPONSIVE MÓVIL */
+/* ============================================ */
+
+@media (max-width: 768px) {
+    .floating-navbar {
+        justify-content: space-between;
+        padding: 8px 15px;
+        gap: 0;
+    }
+    
+    .floating-navbar .hamburger {
+        display: block;
+    }
+    
+    .nav-items-wrapper {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background: linear-gradient(135deg, #1a1a2e, #16213e);
+        gap: 0;
+        padding: 10px 0;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        z-index: 1000;
+    }
+    
+    .nav-items-wrapper.show {
+        display: flex;
+    }
+    
+    .nav-item {
+        width: 100%;
+        padding: 12px;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 15px;
+    }
+    
+    .nav-item.active::before {
+        display: none;
+    }
+    
+    .nav-item.active {
+        transform: none;
+        background: rgba(102,126,234,0.2);
+    }
+    
+    .nav-label {
+        opacity: 1;
+        transform: none;
+        margin-top: 0;
+    }
+    
+    .active-indicator {
+        display: none;
+    }
+    
+    .header {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+        gap: 15px;
+    }
+    
+    .header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .header h1::after {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+    }
+    
+    .buscador-wrapper {
+        max-width: 100%;
+    }
+}
+
+/* ============================================ */
+/* RESTO DE ESTILOS (Hero, Sidebar, Article, Footer, etc.) */
+/* ============================================ */
+
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1591889797537-1a4b6b0d9c8f');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    margin-bottom: 30px;
+}
+
+.hero-content h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    animation: fadeInUp 0.8s ease;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    animation: fadeInUp 1s ease;
+}
+
+.container {
+    display: flex;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.sidebar {
+    flex: 1;
+    min-width: 250px;
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.sidebar:hover {
+    transform: translateY(-5px);
+}
+
+.sidebar h3 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    color: #555;
+}
+
+.info-aside {
+    margin-top: 20px;
+    padding: 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 10px;
+}
+
+.article {
+    flex: 2;
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.article:hover {
+    transform: translateY(-5px);
+}
+
+.article h3 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.article p {
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+.button-principal, .botton-article {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.button-principal:hover, .botton-article:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Footer */
+.footer {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 0;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-section h4 {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #3498db;
+}
+
+.footer-section p {
+    margin: 5px 0;
+    font-size: 0.85rem;
+    color: #ccc;
+}
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icon {
+    display: inline-block;
+    padding: 8px 15px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: #3498db;
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    padding: 20px;
+    font-size: 0.8rem;
+    background: rgba(0,0,0,0.2);
+}
+
+.contador-visitas {
+    text-align: center;
+    padding: 10px;
+    background: rgba(52, 152, 219, 0.2);
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #3498db;
+}
+
+/* Modo oscuro */
+.toggle-theme-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    z-index: 1000;
+}
+
+/* Carrusel */
+.carrusel-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.carrusel-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carrusel-slide {
+    min-width: 100%;
+    position: relative;
+}
+
+.carrusel-slide img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.carrusel-legend {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    padding: 40px 30px 20px;
+    text-align: center;
+}
+
+.carrusel-legend h3 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.carrusel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.carrusel-prev { left: 20px; }
+.carrusel-next { right: 20px; }
+
+.carrusel-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+}
+
+.carrusel-dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.carrusel-dot.active {
+    background: white;
+    transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+    .carrusel-slide img { height: 300px; }
+    .carrusel-legend h3 { font-size: 1.2rem; }
+    .carrusel-btn { font-size: 1.2rem; padding: 5px 12px; }
+    .hero-content h2 { font-size: 1.5rem; }
+    .hero-content p { font-size: 0.9rem; }
+    .container { flex-direction: column; }
+    .footer-content { grid-template-columns: 1fr; text-align: center; }
+}
+
+/* ============================================ */
+/* TEMAS DINÁMICOS SEGÚN LA HORA DEL DÍA */
+/* ============================================ */
+
+
+
+.tema-manana {
+    background: linear-gradient(135deg, #89f7fe, #66a6ff);
+}
+
+.tema-manana .sidebar,
+.tema-manana .article {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    border: none;
+}
+
+.tema-manana .sidebar h3,
+.tema-manana .article h3,
+.tema-manana .sidebar li,
+.tema-manana .article p {
+    color: #2c3e50;
+}
+
+.tema-tarde {
+    background: linear-gradient(135deg, #3498db, #764ba2);
+}
+
+.tema-tarde .sidebar,
+.tema-tarde .article {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(118, 75, 162, 0.2);
+}
+
+.tema-tarde .sidebar h3,
+.tema-tarde .article h3,
+.tema-tarde .sidebar li,
+.tema-tarde .article p {
+    color: #2c3e50;
+}
+
+.tema-manana .ubicacion,
+.tema-tarde .ubicacion {
+    color: #764ba2 !important;
+}
+
+/* Aumentar visibilidad de bordes dorados en temas mañana y tarde */
+.tema-manana .button-principal:hover, .tema-manana .botton-article:hover, 
+.tema-manana .btn-login:hover, .tema-manana .button-registro:hover, 
+.tema-manana .btn-enviar:hover,
+.tema-tarde .button-principal:hover, .tema-tarde .botton-article:hover, 
+.tema-tarde .btn-login:hover, .tema-tarde .button-registro:hover, 
+.tema-tarde .btn-enviar:hover {
+    box-shadow: 0 8px 30px rgba(240,198,116,0.35), 0 6px 20px rgba(102,126,234,0.12);
+    border-color: #f0c674;
+}
+
+.tema-manana .galeria-item:hover, .tema-manana .monumento-card:hover, 
+.tema-manana .personaje-card:hover, .tema-manana .volcan-card:hover,
+.tema-tarde .galeria-item:hover, .tema-tarde .monumento-card:hover, 
+.tema-tarde .personaje-card:hover, .tema-tarde .volcan-card:hover {
+    border-color: #f0c674;
+    box-shadow: 0 15px 35px rgba(240,198,116,0.25);
+}
+
+.tema-manana .nav-item:hover:not(.active),
+.tema-tarde .nav-item:hover:not(.active) {
+    box-shadow: inset 0 -3px 0 0 rgba(240,198,116,0.5);
+}
+
+.tema-manana .badge:hover, .tema-manana .pagination a:hover,
+.tema-tarde .badge:hover, .tema-tarde .pagination a:hover {
+    border-color: #f0c674;
+    box-shadow: 0 6px 16px rgba(240,198,116,0.4);
+}
+
+.tema-noche {
+    background: linear-gradient(135deg, #0f0c29, #302b63);
+}
+
+.tema-noche .sidebar,
+.tema-noche .article {
+    background: #1a1a2e;
+    border: 1px solid #2a2a4a;
+    box-shadow: none;
+}
+
+.tema-noche .sidebar h3,
+.tema-noche .article h3,
+.tema-noche .sidebar li,
+.tema-noche .article p {
+    color: #e0e0e0;
+}
+
+/* ============================================ */
+/* MENÚ HAMBURGUESA - CORRECCIÓN FINAL */
+/* ============================================ */
+
+/* Por defecto en PC: el wrapper se muestra */
+.nav-items-wrapper {
+    display: flex !important;
+}
+
+/* Ocultar hamburguesa en PC */
+.floating-navbar .hamburger {
+    display: none !important;
+}
+
+/* En móvil: mejorar apariencia del menú desplegado */
+@media (max-width: 768px) {
+    .floating-navbar .hamburger {
+        display: block !important;
+    }
+    
+    .nav-items-wrapper {
+        display: none !important;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background: linear-gradient(135deg, #1a1a2e, #16213e);
+        gap: 12;
+        padding: 10px 0;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        z-index: 1000;
+    }
+    
+    .nav-items-wrapper.show {
+        display: flex !important;
+    }
+    
+    /* Estilo para cada item del menú */
+    .nav-item {
+        width: 100%;
+        padding: 12px 20px;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px 12px;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    /* Ícono en móvil */
+    .nav-icon {
+        font-size: 1.3rem;
+        width: 30px;
+        text-align: center;
+    }
+    
+    /* Texto en móvil */
+    .nav-label {
+        opacity: 1 !important;
+        transform: none !important;
+        margin-top: 0;
+        font-size: 1rem;
+        color: rgba(255,255,255,0.8);
+    }
+    
+    /* Ocultar círculo flotante en móvil */
+    .nav-item.active::before {
+        display: none;
+    }
+    
+    /* Item activo en móvil */
+    .nav-item.active {
+        transform: none;
+        background: rgba(102,126,234,0.2);
+        border-left: 3px solid #667eea;
+    }
+    
+    .nav-item.active .nav-icon {
+        color: #667eea;
+    }
+    
+    .nav-item.active .nav-label {
+        color: #667eea;
+    }
+    
+    /* Ocultar indicador en móvil */
+    .active-indicator {
+        display: none;
+    }
+}
+
+/* ============================================ */
+/* BARRA DE BÚSQUEDA - ESTILO ANTERIOR */
+/* ============================================ */
+
+.buscador-container {
+    background: transparent;
+    padding: 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    position: relative;
+    z-index: 500;
+}
+
+.buscador-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 60px;
+    border: 1.5px solid rgba(0,0,0,0.08);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    transition: all 0.3s ease;
+    overflow: visible;
+}
+
+.buscador-wrapper:focus-within,
+.buscador-wrapper:hover {
+    border-color: #f0c674;
+    background: #ffffff;
+    box-shadow: 0 8px 30px rgba(240,198,116,0.08);
+}
+
+.buscador-icono {
+    padding: 12px 0 12px 22px;
+    font-size: 1.1rem;
+    color: rgba(0,0,0,0.6);
+}
+
+.buscador-wrapper input {
+    flex: 1;
+    padding: 12px 12px;
+    border: none;
+    background: transparent;
+    color: #222;
+    outline: none;
+    font-size: 1rem;
+}
+
+.buscador-wrapper input::placeholder {
+    color: rgba(0,0,0,0.45);
+    font-style: italic;
+}
+
+.buscador-clear {
+    padding: 12px 22px;
+    cursor: pointer;
+    color: rgba(0,0,0,0.6);
+    display: none;
+    font-size: 0.9rem;
+}
+
+.buscador-clear.show {
+    display: block;
+}
+
+/* Resultados */
+.resultados-busqueda {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    max-height: 220px;
+    overflow-y: auto;
+    z-index: 9999;
+    display: none;
+    width: 100%;
+}
+
+.resultados-busqueda.show {
+    display: block;
+}
+
+.resultado-item {
+    padding: 10px 15px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    transition: background 0.2s;
+    word-wrap: break-word;
+}
+
+.resultado-item p {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 0;
+    color: #888;
+    font-size: 0.75rem;
+}
+
+.resultado-item:hover {
+    background: #f8f9fa;
+}
+
+.resultado-item h4 {
+    margin: 0 0 3px;
+    color: #2c3e50;
+    font-size: 0.85rem;
+}
+
+.no-resultados {
+    padding: 25px;
+    text-align: center;
+    color: #999;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .buscador-container {
+        padding: 12px 15px;
+    }
+    
+    .buscador-wrapper {
+        max-width: 100%;
+    }
+    
+    .buscador-icono {
+        padding: 10px 0 10px 15px;
+    }
+    
+    .buscador-wrapper input {
+        padding: 10px 10px;
+        font-size: 0.9rem;
+    }
+
+    .resultados-busqueda {
+        width: calc(100% - 20px);
+        left: 10px;
+        right: 10px;
+    }
+}
+
+/* Modo oscuro */
+body.tema-noche .buscador-container {
+    background: transparent;
+}
+
+body.tema-noche .buscador-wrapper {
+    border-color: rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.02);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}
+
+body.tema-noche .buscador-wrapper:focus-within,
+body.tema-noche .buscador-wrapper:hover {
+    border-color: #f0c674;
+    background: rgba(255,255,255,0.03);
+    box-shadow: 0 8px 30px rgba(240,198,116,0.04);
+}
+
+body.tema-noche .buscador-wrapper input {
+    color: white;
+}
+
+body.tema-noche .buscador-wrapper input::placeholder {
+    color: rgba(255,255,255,0.4);
+}
+
+body.tema-noche .buscador-icono {
+    color: rgba(255,255,255,0.85);
+}
+
+body.tema-noche .resultados-busqueda {
+    background: #1a1a2e;
+    border: 1px solid #2a2a4a;
+}
+
+body.tema-noche .resultado-item h4 {
+    color: white;
+}
+
+body.tema-noche .resultado-item p {
+    color: #c0c0c0;
+}
+
+body.tema-noche .resultado-item:hover {
+    background: #0f0f23;
+}
+
+
+
+
+
+
+/* ============================================ */
+/* ESTILOS PARA VALORACIÓN CON ESTRELLAS */
+/* ============================================ */
+
+.rating-section {
+    text-align: center;
+    margin: 40px auto;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 20px;
+    max-width: 500px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.rating-section h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.rating-section p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.stars {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.stars i {
+    font-size: 2rem;
+    cursor: pointer;
+    color: #ccc;
+    transition: all 0.2s ease;
+}
+
+.stars i.active,
+.stars i:hover {
+    color: #f1c40f !important;
+    text-shadow: 0 0 3px rgba(241,196,15,0.3);
+}
+
+.rating-message {
+    margin-top: 12px;
+    font-size: 0.9rem;
+    color: #27ae60;
+    text-align: center;
+}
+
+.rating-promedio {
+    text-align: center;
+    font-size: 0.85rem;
+    margin-top: 8px;
+    color: #f1c40f;
+}
+
+/* Modo oscuro */
+body.tema-noche .rating-section {
+    background: #1a1a2e;
+    border: 1px solid #2a2a4a;
+}
+
+body.tema-noche .rating-section h3 {
+    color: white;
+}
+
+body.tema-noche .rating-section p {
+    color: #ccc;
+}
+
+html.tema-manana body { background: linear-gradient(135deg, #89f7fe, #66a6ff) !important; }
+
+html.tema-tarde body { background: linear-gradient(135deg, #3498db, #764ba2) !important; }
+
+html.tema-noche body { background: linear-gradient(135deg, #0f0c29, #302b63)!important; }
+
+/* Asegurar que el contenedor principal herede el fondo */
+body.tema-manana .historia-container,
+body.tema-manana .galeria-container,
+body.tema-manana .contacto-container,
+body.tema-manana .personajes-container,
+body.tema-manana .volcanes-container,
+body.tema-manana .municipios-container,
+body.tema-manana .admin-container{
+    background: transparent !important;
+}
+
+/* ============================================ */
+/* MODO OSCURO - TÍTULOS Y SUBTÍTULOS GLOBALES */
+/* Aplica a todas las páginas                   */
+/* ============================================ */
+
+body.tema-noche .personajes-header h1,
+body.tema-noche .personajes-header p,
+body.tema-noche .volcanes-header h1,
+body.tema-noche .volcanes-header p,
+body.tema-noche .monumentos-header h1,
+body.tema-noche .monumentos-header p,
+body.tema-noche .galeria-header h1,
+body.tema-noche .galeria-header p,
+body.tema-noche .historia-header h1,
+body.tema-noche .historia-header p,
+body.tema-noche .municipios-header h1,
+body.tema-noche .municipios-header p,
+body.tema-noche .mapa-header h1,
+body.tema-noche .mapa-header p,
+body.tema-noche .contacto-header h1,
+body.tema-noche .contacto-header p,
+body.tema-noche .admin-header h1,
+body.tema-noche .admin-header p
+body.tema-noche .valoraciones-header h1,
+body.tema-noche .valoraciones-header p {
+    color: #ffffff !important;
+}
+
+
+/* Animación de entrada suave para todas las páginas */
+body {
+    animation: fadeInPage 1.70s ease-out; 
+    transition: none !important;
+}
+
+@keyframes fadeInPage {
+    from {
+        opacity: 0.95;
+        transform: translateY(0px) !important;
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) !important;
+    }
+}
+
+
+/* ============================================ */
+/* BOTÓN FLOTANTE SUBIR ARRIBA */
+/* ============================================ */
+
+.btn-subir {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: none;
+    z-index: 999;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    font-size: 1.2rem;
+}
+
+.btn-subir:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(102,126,234,0.4);
+}
+
+.btn-subir:active {
+    transform: translateY(1px);
+}
+
+/* Modo oscuro */
+body.tema-noche .btn-subir {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border: 1px solid #667eea;
+}
+
+body.tema-noche .btn-subir:hover {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+
+/* ============================================ */
+/* BOTÓN FLOTANTE - MODO NOCHE                  */
+/* ============================================ */
+
+.btn-tema {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f39c12, #f1c40f);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    transition: all 0.3s ease, bottom 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    font-size: 1.2rem;
+}
+
+
+.btn-tema:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(243,156,18,0.4);
+}
+
+.btn-tema:active {
+    transform: translateY(1px) scale(0.98);
+}
+
+/* Modo oscuro */
+body.tema-noche .btn-tema {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border: 1px solid #f1c40f;
+}
+
+body.tema-noche .btn-tema:hover {
+    background: linear-gradient(135deg, #f39c12, #f1c40f);
+}
+
+
+/* ============================================ */
+/* MICROINTERACCIONES - MEJORAS VISUALES */
+/* ============================================ */
+
+/* 1. Botones - efecto hover y click */
+.button-principal, .botton-article, .btn-login, .button-registro, .btn-enviar {
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.button-principal:hover, .botton-article:hover, .btn-login:hover, .button-registro:hover, .btn-enviar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(102,126,234,0.4);
+}
+
+/* Hacer los CTAs más visibles con borde dorado sutil al hover */
+.button-principal, .botton-article, .btn-login, .button-registro, .btn-enviar {
+    border: 2px solid transparent;
+    transition: all 0.25s ease;
+}
+.button-principal:hover, .botton-article:hover, .btn-login:hover, .button-registro:hover, .btn-enviar:hover {
+    box-shadow: 0 8px 30px rgba(240,198,116,0.12), 0 6px 20px rgba(102,126,234,0.12);
+    border-color: #f0c674;
+}
+
+.button-principal:active, .botton-article:active, .btn-login:active, .button-registro:active, .btn-enviar:active {
+    transform: translateY(1px);
+}
+
+/* 2. Tarjetas de monumentos, personajes, volcanes */
+.galeria-item, .monumento-card, .personaje-card, .volcan-card, .municipio-card {
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    border: 2px solid transparent;
+}
+
+.galeria-item:hover, .monumento-card:hover, .personaje-card:hover, .volcan-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    border-color: #f0c674;
+}
+
+/* 3. Inputs - efecto focus */
+.input-group input, .input-group textarea, .buscador-wrapper input {
+    transition: all 0.2s ease;
+}
+
+.input-group input:focus, .input-group textarea:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102,126,234,0.2);
+    outline: none;
+} 
+
+/* 4. Enlaces del navbar (efecto sutil) */
+.nav-item {
+    transition: all 0.2s ease;
+}
+
+.nav-item:hover:not(.active) {
+    transform: translateY(-2px);
+}
+
+/* Navegación: borde dorado sutil en hover para destacar el link sin romper el diseño */
+.nav-item, .nav-item a {
+    transition: all 0.2s ease;
+}
+.nav-item:hover:not(.active) {
+    box-shadow: inset 0 -3px 0 0 rgba(240,198,116,0.12);
+}
+
+/* 5. Enlaces del sidebar */
+.sidebar a {
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.sidebar a:hover {
+    transform: translateX(5px);
+    color: #667eea;
+}
+
+/* Badges y paginación: borde dorado en hover */
+.badge, .pagination a {
+    border: 2px solid transparent;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.badge:hover, .pagination a:hover {
+    border-color: #f0c674;
+    box-shadow: 0 6px 16px rgba(240,198,116,0.06);
+}
+
+/* 6. Botón subir arriba (ya tiene, pero ajustamos) */
+.btn-subir {
+    transition: all 0.2s ease;
+}
+
+.btn-subir:hover {
+    transform: translateY(-3px) scale(1.05);
+}
+
+.btn-subir:active {
+    transform: translateY(1px) scale(0.98);
+}
+
+/* 7. Efecto de carga en botones cuando están deshabilitados */
+.button-registro:disabled, .btn-enviar:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* 8. Modo oscuro - mantener efectos */
+body.tema-noche .galeria-item:hover,
+body.tema-noche .monumento-card:hover,
+body.tema-noche .personaje-card:hover,
+body.tema-noche .volcan-card:hover {
+    border-color: #f0c674;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+body.tema-noche .sidebar a:hover {
+    color: #f0c674;
+}
+/* ============================================ */
+/* VER DETALLE - ESQUINA INFERIOR DERECHA       */
+/* ============================================ */
+
+.galeria-item,
+.personaje-card,
+.volcan-card {
+    position: relative;
+}
+
+.ver-mas {
+    position: absolute;
+    bottom: 14px;
+    right: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: #667eea;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: gap 0.2s ease, color 0.2s ease;
+    pointer-events: none;
+}
+
+.galeria-item:hover .ver-mas,
+.personaje-card:hover .ver-mas,
+.volcan-card:hover .ver-mas {
+    gap: 8px;
+    color: #764ba2;
+}
+
+body.tema-noche .ver-mas {
+    color: #8e7bcc;
+}
+
+/* ============================================ */
+/* FORZAR 3 LÍNEAS EN TODAS LAS TARJETAS        */
+/* ============================================ */
+
+.galeria-info p,
+.personaje-info p,
+.volcan-info p,
+.desc-preview {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    min-height: calc(1.6em * 3);
+}
+
+body.tema-noche .galeria-info p,
+body.tema-noche .personaje-info p,
+body.tema-noche .volcan-info p,
+body.tema-noche .desc-preview {
+    color: #241f1f;
+}
+
+/* ============================================ */
+/* BOTÓN VOLVER VISIBLE EN TODOS LOS TEMAS      */
+/* ============================================ */
+
+.btn-volver {
+    background: rgba(255,255,255,0.15) !important;
+    border: 2px solid white !important;
+    color: white !important;
+    backdrop-filter: blur(4px);
+}
+
+.btn-volver:hover {
+    background: rgba(255,255,255,0.3) !important;
+    color: white !important;
+}
+
+/* ============================================ */
+/* ANIMACIÓN DE SCROLL EN TARJETAS              */
+/* ============================================ */
+
+.scroll-oculto {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scroll-oculto.animate {
+    opacity: 1;
+    transform: translateY(0);
+}

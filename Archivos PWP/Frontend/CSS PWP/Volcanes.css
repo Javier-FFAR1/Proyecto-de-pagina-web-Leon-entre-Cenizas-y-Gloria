@@ -1,0 +1,128 @@
+.volcanes-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.volcanes-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.volcanes-header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+}
+
+.volcanes-header p{
+    color: #4b4444;
+}
+
+.volcanes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.volcan-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 2px solid transparent;
+}
+
+.volcan-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.volcan-icon {
+    background: linear-gradient(135deg, #e96443, #904e95);
+    padding: 30px;
+    text-align: center;
+    font-size: 3rem;
+    color: white;
+}
+
+.volcan-info {
+    padding: 20px;
+    flex: 1 1 auto;
+}
+
+.volcan-info h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.volcan-info p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.volcan-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px 20px;
+}
+
+.volcan-card-footer .altura {
+    font-size: 0.85rem;
+    color: #e96443;
+    font-weight: bold;
+}
+
+.volcan-card-footer .ver-mas {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    color: #667eea;
+}
+
+/* Contenedor de la imagen del volcán */
+.volcan-img {
+    width: 100%;
+    height: 200px;  /* Ajusta según necesites */
+    overflow: hidden;
+}
+
+/* La imagen dentro del contenedor */
+.volcan-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s;
+}
+
+/* Efecto hover (opcional) */
+.volcan-card:hover .volcan-img img {
+    transform: scale(1.05);
+}
+
+body.tema-noche .volcan-card {
+    background: #1a1a2e;
+    border: 1px solid #2a2a4a;
+}
+
+body.tema-noche .volcan-info h3 {
+    color: white;
+}
+
+body.tema-noche .volcan-info p {
+    color: #c0c0c0;
+}
+
+@media (max-width: 768px) {
+    .volcanes-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,376 @@
+/* ============================================ */
+/* CSS ESPECÍFICO PARA REGISTRO.HTML - UNIFICADO */
+/* ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-box {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px;
+    background: white !important;
+    border-radius: 20px ;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.6s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid #e0e0e0 !important;
+}
+
+.login-box h2 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+}
+
+.login-box .subtitle {
+    color: #7f8c8d;
+    margin-bottom: 30px;
+    font-size: 0.9rem;
+}
+
+
+/* Inputs */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.input-group label .required {
+    color: #e74c3c;
+    margin-left: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    background: white;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.input-group input.error {
+    border-color: #e74c3c;
+    background-color: #fde8e8;
+}
+
+.input-group input.valid {
+    border-color: #27ae60;
+    background-color: #eafaf1;
+}
+
+.password-requirements {
+    font-size: 0.7rem;
+    color: #7f8c8d;
+    margin-top: 8px;
+    padding: 8px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.password-requirements span {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.7rem;
+}
+
+.requirement-met {
+    color: #27ae60;
+}
+
+.requirement-unmet {
+    color: #e74c3c;
+}
+
+#mensajeBienvenida {
+    margin: 20px 0;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 500;
+    min-height: 70px;
+    animation: fadeIn 0.3s ease;
+    font-size: 0.9rem;
+}
+
+/* Botón de registro - mismo estilo que el resto */
+.button-registro {
+    width: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.button-registro:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.button-registro:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.button-registro:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.volver-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.volver-link:hover {
+    color: #764ba2;
+    transform: translateX(-5px);
+}
+
+.requisitos {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    text-align: left;
+}
+
+.requisitos p {
+    color: #7f8c8d;
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.requisitos ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.requisitos li {
+    color: #95a5a6;
+    font-size: 0.75rem;
+    margin-bottom: 5px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.requisitos li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #27ae60;
+}
+
+/* Footer */
+.footer {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    margin-top: 50px;
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.shake {
+    animation: shake 0.3s ease;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOut {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .nav-links li {
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-box {
+        padding: 30px 20px;
+    }
+    
+    .login-box h2 {
+        font-size: 1.5rem;
+    }
+    
+    .password-requirements {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+
+/* ============================================ */
+/* MODO OSCURO PARA REGISTRO - COMPLETO */
+/* ============================================ */
+
+body.tema-noche .login-box {
+    background: #1a1a2e !important;
+    border: 1px solid #2a2a4a !important;
+}
+
+/* Encabezados principales */
+body.tema-noche .login-box h2 {
+    color: #ffffff !important;
+}
+
+/* Subtítulo debajo del h2 */
+body.tema-noche .subtitle {
+    color: #c0c0c0 !important;
+}
+
+/* Títulos de secciones (h3 como "¿Ya tienes cuenta?") */
+body.tema-noche .login-box h3 {
+    color: #e0e0e0 !important;
+}
+
+body.tema-noche .login-box p {
+    color: #e0e0e0 !important;
+}
+
+/* Labels de los campos */
+body.tema-noche .input-group label {
+    color: #e0e0e0 !important;
+}
+
+/* Texto dentro de los inputs */
+body.tema-noche .input-group input {
+    background: #0f0f23;
+    border-color: #2a2a4a;
+    color: #ffffff !important;
+}
+
+body.tema-noche .input-group input::placeholder {
+    color: #888;
+}
+
+/* Requisitos de contraseña */
+body.tema-noche .password-requirements {
+    background: #0f0f23;
+}
+
+body.tema-noche .requirement-met {
+    color: #81c784 !important;
+}
+
+body.tema-noche .requirement-unmet {
+    color: #e57373 !important;
+}
+
+/* Texto del mensaje de validación */
+body.tema-noche #mensajeBienvenida {
+    color: #e0e0e0;
+}
+
+/* Lista de requisitos del registro */
+body.tema-noche .requisitos p {
+    color: #c0c0c0 !important;
+}
+
+body.tema-noche .requisitos li {
+    color: #a0a0a0 !important;
+}
+
+body.tema-noche .requisitos {
+    border-top-color: #2a2a4a;
+}
+
+/* Enlace "Volver al inicio" */
+body.tema-noche .volver-link {
+    color: #667eea;
+}
+
+body.tema-noche .volver-link:hover {
+    color: #8e7bcc;
+}
+
+/* Botón de registro */
+body.tema-noche .button-registro {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}

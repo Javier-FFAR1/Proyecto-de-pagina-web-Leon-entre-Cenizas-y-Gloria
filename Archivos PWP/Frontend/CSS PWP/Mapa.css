@@ -1,0 +1,116 @@
+/* CSS PWP/Mapa.css */
+
+.mapa-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.mapa-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.mapa-header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+}
+
+.mapa-header p {
+    font-size: 1.1rem;
+    color: #4b4444;
+    margin-top: 10px;
+}
+
+#map {
+    height: 500px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.filtros-mapa {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filtro-mapa-btn {
+    background: #f0f0f0;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+}
+
+.filtro-mapa-btn:hover,
+.filtro-mapa-btn.active {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.info-marker {
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.info-marker h3 {
+    margin: 0 0 5px;
+    color: #2c3e50;
+    font-size: 1rem;
+}
+
+.info-marker p {
+    margin: 5px 0;
+    color: #666;
+    font-size: 0.85rem;
+}
+
+.info-marker a {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 6px 14px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white !important;  /* Forzar blanco */
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.info-marker a:hover {
+    background: linear-gradient(135deg, #5a6fd6, #6a3f91);
+    transform: scale(1.02);
+}
+
+/* Modo oscuro */
+body.tema-noche .mapa-header h1 {
+    color: white;
+}
+
+body.tema-noche .filtro-mapa-btn {
+    background: #1a1a2e;
+    color: #e0e0e0;
+    border: 1px solid #2a2a4a;
+}
+
+body.tema-noche .filtro-mapa-btn:hover,
+body.tema-noche .filtro-mapa-btn.active {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #map {
+        height: 400px;
+    }
+    .mapa-header h1 {
+        font-size: 1.5rem;
+    }
+}

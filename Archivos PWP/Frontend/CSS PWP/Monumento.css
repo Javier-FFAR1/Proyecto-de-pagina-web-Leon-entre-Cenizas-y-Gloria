@@ -1,0 +1,276 @@
+/* Estilos de la galería de monumnetos*/
+
+.galeria-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+        
+.galeria-header {
+    text-align: center;
+     margin-bottom: 40px;
+}
+        
+.galeria-header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+        
+.galeria-header p {
+    color: #413b3b;
+    font-size: 1.1rem;
+}
+
+
+/* Filtros */
+.filtros {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;             
+}
+        
+.filtro-btn {
+    background: #f0f0f0;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s;      
+}
+        
+.filtro-btn:hover, .filtro-btn.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+        
+/* Grid de galería */
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 25px;
+}
+        
+.galeria-item {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    border: 2px solid transparent;
+}
+        
+.galeria-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+        
+.galeria-img {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+        
+.galeria-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+        
+.galeria-item:hover .galeria-img img {
+    transform: scale(1.05);
+}
+        
+.galeria-info {
+    padding: 20px;
+    flex: 1 1 auto;
+}
+
+.galeria-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px 20px;
+}
+
+.galeria-card-footer .ver-mas {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+    color: #667eea;
+    cursor: pointer;
+}
+        
+.galeria-info h3 {
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+        
+.galeria-info p {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+        
+.galeria-info .ubicacion {
+    color: #3498db !important;
+    font-size: 0.8rem;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+        
+/* Lightbox (modal para ver imagen grande) */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.95);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+        
+.lightbox.active {
+    display: flex;
+}
+        
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+        
+.lightbox-img {
+    max-width: 100%;
+    max-height: 60vh;
+    border-radius: 10px;
+}
+
+.close-lightbox {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+    background: rgba(0,0,0,0.5);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+        
+.close-lightbox:hover {
+    transform: scale(1.1);
+    background: rgba(0,0,0,0.8);
+}
+
+/* Sombra dorada sutil al pasar sobre el cerrar del lightbox */
+.close-lightbox:hover {
+    box-shadow: 0 0 0 4px rgba(240,198,116,0.06);
+}
+        
+.lightbox-title {
+    margin-top: 15px;
+    font-size: 1.3rem;
+    color: #2c3e50;
+}
+        
+.lightbox-desc {
+    color: #666;
+    margin-top: 10px;
+}
+        
+/* Contador de resultados */
+.resultados-count {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #494747;
+    font-size: 0.9rem;
+}
+        
+@media (max-width: 768px) {
+    .galeria-grid {
+        grid-template-columns: 1fr;
+    }
+            
+.close-lightbox {
+    top: 10px;
+    right: 10px;
+    background: rgba(0,0,0,0.7);
+    }
+}
+
+/* Modo oscuro para Monumentos */
+body.tema-noche .galeria-header h1,
+body.tema-noche .galeria-header p {
+    color: #ffffff;
+}
+
+body.tema-noche .filtro-btn {
+    background: #1a1a2e;
+    color: #e0e0e0;
+    border: 1px solid #2a2a4a;
+}
+
+body.tema-noche .filtro-btn:hover,
+body.tema-noche .filtro-btn.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+body.tema-noche .galeria-item {
+    background: #1a1a2e;
+    border: 1px solid #2a2a4a;
+}
+
+body.tema-noche .galeria-info h3 {
+    color: #ffffff;
+}
+
+body.tema-noche .galeria-info p {
+    color: #c0c0c0;
+}
+
+body.tema-noche .ubicacion {
+    color: #764ba2 !important;
+}
+
+body.tema-noche .resultados-count {
+    color: #c0c0c0;
+}
+
+body.tema-noche .lightbox-content {
+    background: #1a1a2e;
+}
+
+body.tema-noche .lightbox-title {
+    color: #ffffff;
+}
+
+body.tema-noche .lightbox-desc {
+    color: #c0c0c0;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - León entre Cenizas y Gloria</title>
+    <link rel="stylesheet" href="CSS PWP/Primera pagina web.css">
+    <link rel="stylesheet" href="CSS PWP/Login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <i class="fas fa-lock"></i>
+                <h2>Iniciar Sesión</h2>
+                <p>Bienvenido de vuelta</p>
+            </div>
+            
+            <form id="loginForm" onsubmit="event.preventDefault(); procesarLogin();">
+                <div class="input-group">
+                    <label><i class="fas fa-user"></i> Usuario / Correo</label>
+                    <input type="text" name="username" id="loginUser" autocomplete="username" placeholder="Ingresa tu usuario o correo">
+                </div>
+
+                <div class="input-group">
+                    <label><i class="fas fa-key"></i> Contraseña</label>
+                    <input type="password" name="password" id="loginPass" autocomplete="current-password" placeholder="Ingresa tu contraseña">
+                </div>
+
+                <button type="submit" id="btnLogin" class="btn-login">
+                    <i class="fas fa-sign-in-alt"></i> Iniciar sesión
+                </button>
+            </form>
+                        
+            <div id="mensajeLogin" class="mensaje-login"></div>
+            
+            <div class="login-footer">
+                <p>¿No tienes cuenta? <a href="registro.html">Regístrate aquí</a></p>
+                <a href="Primera pagina web.html" class="volver-link">← Volver al inicio</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="JS PWP/Mi primera pagina web.js"></script>
+    <script src="JS PWP/Login.js"></script>
+</body>
+</html>

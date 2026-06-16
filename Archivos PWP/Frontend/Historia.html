@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia de León - Patrimonio Cultural</title>
+    <link rel="stylesheet" href="CSS PWP/Primera pagina web.css">
+    <link rel="stylesheet" href="CSS PWP/Historia.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="Imagenes PWP/Logo.png" alt="Logo" width="140" height="140">
+        </div>
+        <div class="header-text">
+            <h1>León entre Cenizas y Gloria</h1>
+            <div class="subtitle">Patrimonio · Historia · Cultura</div>
+        </div>
+    </header>
+
+    <nav class="floating-navbar">
+        <button class="hamburger" id="hamburger">☰</button>
+        <div class="nav-items-wrapper" id="navItemsWrapper">
+            <div class="nav-item" data-section="inicio">
+                <div class="nav-icon"><i class="fas fa-home"></i></div>
+                <span class="nav-label">Inicio</span>
+            </div>
+
+            <div class="nav-item active" data-section="historia">
+                <div class="nav-icon"><i class="fas fa-history"></i></div>
+                <span class="nav-label">Historia</span>
+            </div>
+
+            <div class="nav-item" data-section="monumentos">
+                <div class="nav-icon"><i class="fas fa-landmark"></i></div>
+                <span class="nav-label">Monumentos</span>
+            </div>
+
+            <div class="nav-item" data-section="personajes">
+                <div class="nav-icon"><i class="fas fa-users"></i></div>
+                <span class="nav-label">Personajes</span>
+            </div>
+
+            <div class="nav-item" data-section="volcanes">
+                <div class="nav-icon"><i class="fas fa-mountain"></i></div>
+                <span class="nav-label">Volcanes</span>
+            </div>
+            
+            <div class="nav-item" data-section="mapa">
+                <div class="nav-icon"><i class="fas fa-map"></i></div>
+                <span class="nav-label">Mapa</span>
+            </div> 
+            <div class="nav-item" data-section="municipios">
+                <div class="nav-icon"><i class="fas fa-building"></i></div>
+                <span class="nav-label">Municipios</span>
+            </div>
+
+            <div class="nav-item" data-section="contacto">
+                <div class="nav-icon"><i class="fas fa-envelope"></i></div>
+                <span class="nav-label">Contacto</span>
+            </div>
+
+            <div class="nav-item" data-section="perfil">
+                <div class="nav-icon"><i class="fas fa-user"></i></div>
+                <span class="nav-label">Perfil</span>
+            </div>
+
+            <div class="nav-item" data-section="acerca">
+                <div class="nav-icon"><i class="fas fa-info-circle"></i></div>
+                <span class="nav-label">Acerca</span>
+            </div>
+        </div>
+        <div class="active-indicator"></div>
+    </nav>
+    
+    <!-- BARRA DE BÚSQUEDA INDEPENDIENTE -->
+    <div class="buscador-container">
+        <div class="buscador-wrapper">
+            <div class="buscador-icono"><i class="fas fa-search"></i></div>
+            <input type="text" id="buscarInput" placeholder="Buscar en el sitio...">
+            <div class="buscador-clear" id="clearBuscar">✖</div>
+            <div id="resultadosBusqueda" class="resultados-busqueda"></div>
+        </div>
+    </div>
+
+    <main>
+        <div class="historia-container">
+            <div class="historia-header">
+                <h1><i class="fas fa-history" style="color: rgb(24, 130, 115)"></i> Historia de León</h1>
+                <p>Descubre más de 500 años de historia, cultura y tradición</p>
+            </div>
+
+            <!-- Línea de tiempo -->
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">1524</span>
+                        <h3>Fundación de León</h3>
+                        <p>León fue fundada el 15 de junio de 1524 por el conquistador español Francisco Hernández de Córdoba, siendo la segunda ciudad más antigua de Nicaragua.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">1610</span>
+                        <h3>Traslado de la ciudad</h3>
+                        <p>Después de una erupción del volcán Momotombo, la ciudad fue trasladada a su ubicación actual, a 30 km al oeste de la ciudad original.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">1747</span>
+                        <h3>Inicio de la Catedral</h3>
+                        <p>Comienza la construcción de la Santa Iglesia Catedral Basílica de la Asunción, la catedral más grande de Centroamérica.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">1813</span>
+                        <h3>Universidad Nacional</h3>
+                        <p>Se funda la Universidad Nacional de León, la segunda universidad más antigua de Centroamérica.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">1867</span>
+                        <h3>Nacimiento de Rubén Darío</h3>
+                        <p>En la ciudad de León nace Félix Rubén García Sarmiento, el Príncipe de las Letras Castellanas.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">2011</span>
+                        <h3>Patrimonio de la Humanidad</h3>
+                        <p>La Catedral de León es declarada Patrimonio de la Humanidad por la UNESCO.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+            </div>
+
+            <!-- Monumentos principales -->
+            <h2 style="text-align: center; margin: 60px 0 30px;"><i class="fas fa-landmark" style="color:#a6a9a2"></i> Monumentos Principales</h2>
+            <div class="monumentos-grid">
+                
+                <!-- 1. Catedral de León -->
+                <div class="monumento-card">
+                    <div class="monumento-img">
+                        <img src="Imagenes PWP/Catedral.jpg" alt="Catedral de León">
+                    </div>
+                    <div class="monumento-info">
+                        <h3>Catedral de León</h3>
+                        <p>Santa Iglesia Catedral Basílica de la Asunción. Patrimonio de la Humanidad por la UNESCO. Es la catedral más grande de Centroamérica.</p>
+                        <span class="año"><i class="fas fa-calendar-alt"></i> 1747 - 1814</span>
+                    </div>
+                </div>
+
+                <!-- 2. Iglesia San Juan de Dios -->
+                <div class="monumento-card">
+                    <div class="monumento-img">
+                        <img src="Imagenes PWP/Iglesia San Juan de Dios.jpg" alt="Iglesia San Juan de Dios">
+                    </div>
+                    <div class="monumento-info">
+                        <h3>Iglesia San Juan de Dios</h3>
+                        <p>Hermosa iglesia colonial del siglo XVIII, ubicada en el centro histórico de León.</p>
+                        <span class="año" > <i class="fas fa-calendar-alt"></i> 1747 - 1814</span>
+                    </div>
+                </div>
+
+                <!-- 3. Iglesia El Calvario -->
+                <div class="monumento-card">
+                    <div class="monumento-img">
+                        <img src="Imagenes PWP/Iglesia el Calvario.jpg" alt="Iglesia El Calvario">
+                    </div>
+                    <div class="monumento-info">
+                        <h3>Iglesia El Calvario</h3>
+                        <p>Famosa por albergar el Cristo Negro, una de las imágenes religiosas más veneradas de Nicaragua.</p>
+                        <span class="año"><i class="fas fa-calendar-alt"></i> 1747 - 1814</span>
+                    </div>
+                </div>
+
+                <!-- 4. Iglesia La Merced -->
+                <div class="monumento-card">
+                    <div class="monumento-img">
+                        <img src="Imagenes PWP/Iglesia La Merced.jpg" alt="Iglesia La Merced">
+                    </div>
+                    <div class="monumento-info">
+                        <h3>Iglesia La Merced</h3>
+                        <p>Impresionante fachada barroca y uno de los templos más antiguos de la ciudad.</p>
+                        <span class="año"><i class="fas fa-calendar-alt"></i> 1747 - 1814</span>
+                    </div>
+                </div>
+
+                <!-- 5. UNAN - León -->
+                <div class="monumento-card">
+                    <div class="monumento-img">
+                        <img src="Imagenes PWP/UNAN-León.jpg" alt="Universidad Nacional de León">
+                    </div>
+                    <div class="monumento-info">
+                        <h3>UNAN - León</h3>
+                        <p>Segunda universidad más antigua de Centroamérica, fundada en 1813. Cuna de Rubén Darío.</p>
+                        <span class="año"><i class="fas fa-calendar-alt"></i> 1813</span>
+                    </div>
+                </div>
+
+                <!-- 6. Ruinas de León Viejo -->
+                <div class="monumento-card">
+                    <div class="monumento-img">
+                        <img src="Imagenes PWP/Ruinas de León Viejo.webp" alt="Ruinas de León Viejo">
+                    </div>
+                    <div class="monumento-info">
+                        <h3>León Viejo (Ruinas)</h3>
+                        <p>Ciudad original fundada en 1524. Patrimonio de la Humanidad por la UNESCO.</p>
+                        <span class="año"><i class="fas fa-calendar-alt"></i> 1524 - 1610</span>
+                    </div>
+                </div>
+
+                <!-- 7. Iglesia San Francisco -->
+                <div class="monumento-card">
+                    <div class="monumento-img">
+                        <img src="Imagenes PWP/Iglesia San Francisco.jpg" alt="Iglesia San Francisco">
+                    </div>
+                    <div class="monumento-info">
+                        <h3>Iglesia San Francisco</h3>
+                        <p>Uno de los templos más antiguos de León, con hermosa fachada barroca y un convento adjunto.</p>
+                        <span class="año"><i class="fas fa-calendar-alt"></i> 1747 - 1814</span>
+                    </div>
+                </div>
+
+                <!-- 8. Museo Rubén Darío -->
+                <div class="monumento-card">
+                    <div class="monumento-img">
+                        <img src="Imagenes PWP/Museo Rubén Darío.jpg" alt="Museo Rubén Darío">
+                    </div>
+                    <div class="monumento-info">
+                        <h3>Museo Rubén Darío</h3>
+                        <p>Casa natal del Príncipe de las Letras Castellanas. Conserva objetos personales y manuscritos del poeta.</p>
+                        <span class="año"><i class="fas fa-calendar-alt"></i> 1850 - 1916</span>
+                    </div>
+                </div>
+
+                <!-- 9. Iglesia El Sutiaba -->
+                <div class="monumento-card">
+                    <div class="monumento-img">
+                        <img src="Imagenes PWP/Iglesia El Sutiaba.jpg" alt="Iglesia El Sutiaba">
+                    </div>
+                    <div class="monumento-info">
+                        <h3>Iglesia El Sutiaba</h3>
+                        <p>Construida sobre un antiguo cementerio indígena. Es el templo más antiguo de León, data de 1524.</p>
+                        <span class="año"><i class="fas fa-calendar-alt"></i> 1524</span>
+                    </div>
+                </div>
+
+                <!-- 10. Antigua Cárcel de la 21 -->
+                <div class="monumento-card">
+                    <div class="monumento-img">
+                        <img src="Imagenes PWP/Carcel La 21.avif" alt="Antigua Cárcel de la 21">
+                    </div>
+                    <div class="monumento-info">
+                        <h3>Antigua Cárcel de la 21</h3>
+                        <p>Centro cultural que antes fue cárcel. Alberga exposiciones de arte y eventos culturales.</p>
+                        <span class="año"><i class="fas fa-calendar-alt"></i> 1900 - 1950</span>
+                    </div>
+                </div>
+                            <!-- Palacio Municipal -->
+                <div class="monumento-card">
+                    <div class="monumento-img">
+                        <img src="Imagenes PWP/Alcaldía Municipal.jpg" alt="Palacio Municipal de León">
+                    </div>
+                    <div class="monumento-info">
+                        <h3>Palacio Municipal</h3>
+                        <p>Edificio histórico del siglo XIX, sede del gobierno municipal. Destaca por su arquitectura neoclásica.</p>
+                        <span class="año"><i class="fas fa-calendar-alt"></i> 1800 - 1899</span>
+                    </div>
+                </div>
+
+                    <!-- Iglesia La Recolección -->
+                <div class="monumento-card">
+                    <div class="monumento-img">
+                        <img src="Imagenes PWP/Iglesia La Recolección.jpg" alt="Iglesia La Recolección">
+                    </div>
+                    <div class="monumento-info">
+                        <h3>Iglesia La Recolección</h3>
+                        <p>Templo del siglo XVIII con hermosa fachada barroca. Actualmente funciona como centro cultural.</p>
+                        <span class="año"><i class="fas fa-calendar-alt"></i> 1747 - 1814</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== SECCIÓN DE COMENTARIOS ===== -->
+            <div class="comentarios-section">
+                <h2><i class="fas fa-comments"></i> Comentarios de la comunidad</h2>
+                <p class="comentarios-subtitulo">Comparte tu opinión sobre la historia de León</p>
+                
+                <div class="comentario-form" id="comentarioForm">
+                    <h3>Deja tu comentario</h3>
+                    <div class="usuario-info" id="usuarioInfo"></div>
+                    <textarea id="nuevoComentario" rows="3" placeholder="Escribe tu comentario aquí..."></textarea>
+                    <button id="btnPublicar" class="btn-comentar"><i class="fas fa-paper-plane"></i> Publicar comentario</button>
+                    <div id="comentarioError" class="comentario-error"></div>
+                </div>
+                
+                <div class="comentarios-lista" id="comentariosLista">
+                    <h3><i class="fas fa-comment-dots"></i> Comentarios recientes</h3>
+                    <div id="comentariosContainer"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4><i class="fas fa-phone" style="color: #a6a9a2;"></i> Contacto</h4>
+                <p>infopatrimonialeon@gmail.com</p>
+                <p>+505 1234 5678</p>
+            </div>
+            <div class="footer-section">
+                <h4><i class="fas fa-share-alt" style="color: #a6a9a2;"></i> Síguenos</h4>
+                <div class="social-links">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f" style="color: #3b5998;"></i> Facebook</a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram" style="color: #e1306c;"></i> Instagram</a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter" style="color: #1da1f2;"></i> Twitter</a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube" style="color: #ff0000;"></i> YouTube</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4><i class="fas fa-map-marker-alt" style="color: #a6a9a2;"></i> Ubicación</h4>
+                <p>León, Nicaragua</p>
+                <p>Centro Histórico</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026- Patrimonio Cultural de León | Todos los derechos reservados</p>
+            <p>Michael Javier Obando Urroz</p>
+        </div>
+    </footer>
+
+    <script src="JS PWP/Mi primera pagina web.js"></script>
+    <script src="JS PWP/Historia.js"></script>
+    <!-- Botón flotante para subir arriba -->
+    <button id="btnSubir" class="btn-subir">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+</body>
+</html>

@@ -1,0 +1,142 @@
+.personajes-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.personajes-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.personajes-header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+}
+.personajes-header p {
+    font-size: 1.1rem;
+    color: #4b4444;
+    margin-top: 10px;
+}
+.personajes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+
+}
+
+.personaje-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 2px solid transparent;
+}
+
+.personaje-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.personaje-icon {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    padding: 30px;
+    text-align: center;
+    font-size: 3rem;
+    color: white;
+}
+
+.personaje-info {
+    padding: 20px;
+    flex: 1 1 auto;
+}
+
+.personaje-info h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.personaje-info p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.personaje-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px 20px;
+}
+
+.personaje-card-footer .ano {
+    font-size: 0.85rem;
+    color: #04512edd;
+    font-weight: bold;
+}
+
+.personaje-card-footer .ver-mas {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    color: #667eea;
+}
+
+/* Contenedor de la imagen */
+.personaje-img, .volcan-img {
+    width: 100%;
+    height: 200px;  /* Reduce la altura (antes 220px) */
+    overflow: hidden;
+}
+
+/* La imagen dentro del contenedor */
+.personaje-img img, .volcan-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* La imagen cubre el espacio sin deformarse */
+    object-position: center;  /* Centra la imagen */
+    transition: transform 0.3s;
+}
+
+body.tema-noche .personaje-card {
+    background: #1a1a2e;
+    border: 1px solid #2a2a4a;
+}
+
+body.tema-noche .personaje-card:hover {
+    box-shadow: 0 15px 35px rgba(255,255,255,0.1);
+}
+
+body.tema-noche .personaje-icon {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+body.tema-noche .personaje-info {
+    padding: 20px;
+}
+
+body.tema-noche .personaje-info h3 {
+    color: white;
+}
+
+body.tema-noche .personaje-info p {
+    color: #c0c0c0;
+}
+
+body.tema-noche .personaje-card-footer .ano {
+    color: #764ba2;
+}
+
+
+@media (max-width: 768px) {
+    .personajes-grid {
+        grid-template-columns: 1fr;
+    }
+}

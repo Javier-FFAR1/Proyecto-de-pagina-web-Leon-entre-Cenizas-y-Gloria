@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Patrimonio Cultural de León</title>
+    <link rel="stylesheet" href="CSS PWP/Primera pagina web.css">
+    <link rel="stylesheet" href="CSS PWP/Registro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="login-box" id="cajaRegistro">
+        <h2><i class="fas fa-user-plus"></i> Registro de Investigador</h2>
+        <p class="subtitle">Únete a nuestra comunidad de patrimonio cultural</p>
+        
+        <form id="registroForm" onsubmit="event.preventDefault(); procesarRegistroCompleto();">
+            <!-- NOMBRE -->
+            <div class="input-group">
+                <label><i class="fas fa-user"></i> Nombre Completo: <span class="required">*</span></label>
+                <input type="text" name="name" id="nombreUsuario" autocomplete="name" placeholder="Ej: María González">
+            </div>
+
+            <!-- CORREO -->
+            <div class="input-group">
+                <label><i class="fas fa-envelope"></i> Correo Electrónico: <span class="required">*</span></label>
+                <input type="email" name="email" id="correoUsuario" autocomplete="email" placeholder="ejemplocorreo@dominio.com">
+            </div>
+
+            <!-- CONTRASEÑA CON REQUISITOS -->
+            <div class="input-group">
+                <label><i class="fas fa-lock"></i> Contraseña: <span class="required">*</span></label>
+                <input type="password" name="new-password" id="passwordUsuario" autocomplete="new-password" placeholder="Mínimo 8 caracteres">
+                <div class="password-requirements" id="passwordReqs">
+                    <span id="reqLength"><i class="fas fa-times-circle"></i> 8+ caracteres</span>
+                    <span id="reqUpper"><i class="fas fa-times-circle"></i> Mayúscula</span>
+                    <span id="reqLower"><i class="fas fa-times-circle"></i> Minúscula</span>
+                    <span id="reqNumber"><i class="fas fa-times-circle"></i> Número</span>
+                </div>
+            </div>
+
+            <!-- CONFIRMAR CONTRASEÑA -->
+            <div class="input-group">
+                <label><i class="fas fa-check-circle"></i> Confirmar Contraseña: <span class="required">*</span></label>
+                <input type="password" name="confirm-password" id="confirmPassword" autocomplete="off" placeholder="Repite tu contraseña">
+            </div>
+
+            <button type="submit" class="button-registro" id="btnRegistro" disabled>
+                <i class="fas fa-user-plus"></i> Registrarse ahora
+            </button>
+        </form>
+
+        <div id="mensajeBienvenida"></div>
+
+        <div class="requisitos">
+            <p><i class="fas fa-info-circle"></i> Requisitos de registro (todos son obligatorios):</p>
+            <ul>
+                <li>Nombre: entre 2 y 50 caracteres (solo letras y espacios)</li>
+                <li>Correo: formato válido (ejemplodecorreo@gmail.com)</li>
+                <li>Contraseña: mínimo 8 caracteres</li>
+                <li>Contraseña: al menos 1 mayúscula, 1 minúscula y 1 número</li>
+                <li>Las contraseñas deben coincidir</li>
+            </ul>
+        </div>
+        
+        <hr style="margin: 30px 0;">
+        <p><i class="fas fa-question-circle"></i> ¿Ya tienes una cuenta? <a href="Login.html">Inicia sesión aquí</a></p>
+        <a href="Primera pagina web.html" class="volver-link">← Volver al inicio</a>
+    </div>
+
+    <script src="JS PWP/Mi primera pagina web.js"></script>
+    <script src="JS PWP/Registro.js"></script>
+</body>
+</html>

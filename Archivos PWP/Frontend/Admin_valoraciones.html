@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Valoraciones</title>
+    <link rel="stylesheet" href="CSS PWP/Primera pagina web.css">
+    <link rel="stylesheet" href="CSS PWP/Admin_valoraciones.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="Imagenes PWP/Logo.png" alt="Logo" width="140" height="140">
+        </div>
+        <div class="header-text">
+            <h1>León entre Cenizas y Gloria</h1>
+            <div class="subtitle">Patrimonio · Historia · Cultura</div>
+        </div>
+    </header>
+    
+    <nav class="floating-navbar">
+        <button class="hamburger" id="hamburger">☰</button>
+        <div class="nav-items-wrapper" id="navItemsWrapper">
+            <div class="nav-item" data-section="inicio">
+                <div class="nav-icon"><i class="fas fa-home"></i></div>
+                <span class="nav-label">Inicio</span>
+            </div>
+            <div class="nav-item" data-section="historia">
+                <div class="nav-icon"><i class="fas fa-history"></i></div>
+                <span class="nav-label">Historia</span>
+            </div>
+             <div class="nav-item" data-section="monumentos">
+                <div class="nav-icon"><i class="fas fa-landmark"></i></div>
+                <span class="nav-label">Monumentos</span>
+            </div>
+
+            <div class="nav-item" data-section="personajes">
+                <div class="nav-icon"><i class="fas fa-users"></i></div>
+                <span class="nav-label">Personajes</span>
+            </div>
+
+            <div class="nav-item" data-section="volcanes">
+                <div class="nav-icon"><i class="fas fa-mountain"></i></div>
+                <span class="nav-label">Volcanes</span>
+            </div>
+            
+            <div class="nav-item" data-section="mapa">
+                <div class="nav-icon"><i class="fas fa-map"></i></div>
+                <span class="nav-label">Mapa</span>
+            </div>
+
+            <div class="nav-item" data-section="municipios">
+                <div class="nav-icon"><i class="fas fa-building"></i></div>
+                <span class="nav-label">Municipios</span>
+            </div>
+
+            <div class="nav-item" data-section="contacto">
+                <div class="nav-icon"><i class="fas fa-envelope"></i></div>
+                <span class="nav-label">Contacto</span>
+            </div>
+
+            <div class="nav-item active" data-section="perfil">
+                <div class="nav-icon"><i class="fas fa-user"></i></div>
+                <span class="nav-label">Perfil</span>
+            </div>
+
+            <div class="nav-item" data-section="acerca">
+                <div class="nav-icon"><i class="fas fa-info-circle"></i></div>
+                <span class="nav-label">Acerca</span>
+            </div>
+
+        </div>
+        <div class="active-indicator"></div>
+    </nav>
+    
+    <main>
+        <div class="admin-container">
+            <div class="admin-header">
+                <h1><i class="fas fa-star" style="color: #d79f12;"></i> Valoraciones de Usuarios</h1>
+                <p>Opiniones y calificaciones del sitio</p>
+            </div>
+            <div id="contenidoValoraciones">
+                <div class="contador">Cargando...</div>
+            </div>
+            <div style="text-align: center;">
+                <a href="Primera pagina web.html" class="volver-link">← Volver al inicio</a>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="footer">...</footer>
+    
+    <script src="JS PWP/Mi primera pagina web.js"></script>
+    <script src="JS PWP/Admin_valoraciones.js"></script>
+    <!-- Botón flotante para subir arriba -->
+    <button id="btnSubir" class="btn-subir">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+</body>
+</html>
