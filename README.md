@@ -189,7 +189,7 @@ Abrir el archivo `Archivos PWP/Frontend/Primera pagina web.html` con la extensi√
 | Rol | Correo | Contrase√±a |
 |-----|--------|------------|
 | Administrador | michaelpatrimonio@gmail.com | Admin9876 |
-| Usuario normal | anarodriguez@gmail.com | Ana123 |
+| Usuario normal | anarodriguez@gmail.com | AnaRO123 |
 
 ---
 
